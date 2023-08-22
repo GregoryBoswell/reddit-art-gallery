@@ -9,6 +9,12 @@
     background-color: white;
 }
 
+.thumbnail {
+    display: block;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
 h4 {
     color: #201D20;
 }

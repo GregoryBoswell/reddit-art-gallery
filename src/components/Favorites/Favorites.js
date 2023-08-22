@@ -16,18 +16,12 @@ function Favorites() {
                 <section className="favorites">
 
                     <ul>
-                        
-                        <li className="favorite-item">
-
-                            <h4>Family portrait, u/artsofme, oil paint, 2023</h4>
-                            <a href="https://i.redd.it/qjjxvy1tlgjb1.jpg" target="_blank">https://i.redd.it/qjjxvy1tlgjb1.jpg</a>
-
-                        </li>
 
                         <li className="favorite-item">
 
-                            <h4>Golden Fields, Amberbrunsdenart, Oil on canvas, 2023</h4>
-                            <a href="https://i.redd.it/yoeqbbgwvgjb1.jpg" target="_blank">https://i.redd.it/yoeqbbgwvgjb1.jpg</a>
+                            <h4>Untitled, u/melouke, Marker and biro, 2023</h4>
+                            <img src="https://b.thumbs.redditmedia.com/AeNLy_ivCTO0Va3HAuQKfA-MGiaVtQEabyGMc-l0Twk.jpg" className="thumbnail"></img>
+                            <a href="https://i.redd.it/npi05g5x6njb1.jpg" target="_blank">https://i.redd.it/npi05g5x6njb1.jpg</a>
 
                         </li>
 
