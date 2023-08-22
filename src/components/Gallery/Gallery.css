@@ -1,0 +1,59 @@
+.title {
+    color: #201D20;
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+}
+
+.art-display {
+  height: 100vh;
+}
+
+.title {
+  margin-top: 2vh;
+}
+
+.author {
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+
+.description-box {
+  height: 100vh;
+  justify-content: left;
+  margin-left: 5%;
+  margin-right: 40%;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.artwork {
+  width: 100%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 5%;
+} 
+
+.heart-icon {
+  width: 60px;
+  margin-top: 35vh;
+}
+
+.heart-icon:hover {
+  cursor: pointer;
+} 
+
+.counter-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  margin: 0;
+}

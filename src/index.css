@@ -1,0 +1,40 @@
+body {
+  color: #6C606C;
+  background-color: #F5F4F5;
+  margin: 0;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+nav {
+  padding-top: 2vh;
+  padding-left: 3%;
+}
+
+.navigation {
+  color: #6C606C;
+  text-decoration: none;
+}
+
+.navigation:hover {
+  text-decoration: underline;
+}
+
+.arrow {
+  border: solid #6C606C;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
