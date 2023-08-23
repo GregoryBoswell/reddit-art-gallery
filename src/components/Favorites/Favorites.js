@@ -2,11 +2,12 @@ import React from "react";
 import './Favorites.css';
 
 function Favorites() {
+
     return (
 
         <body>
 
-            <div className="grid-box">
+            <div className="grid-box-favorites">
 
                 <nav>
                     <a href='Gallery' className="navigation"><i className="arrow left" /> Return to Gallery</a>
@@ -20,9 +21,12 @@ function Favorites() {
                         <li className="favorite-item">
 
                             <h4>Untitled, u/melouke, Marker and biro, 2023</h4>
-                            <img src="https://b.thumbs.redditmedia.com/AeNLy_ivCTO0Va3HAuQKfA-MGiaVtQEabyGMc-l0Twk.jpg" className="thumbnail"></img>
-                            <a href="https://i.redd.it/npi05g5x6njb1.jpg" target="_blank">https://i.redd.it/npi05g5x6njb1.jpg</a>
 
+                            <p className="date-added">Added 22/08/2023</p>
+                            
+                            <a href="https://i.redd.it/npi05g5x6njb1.jpg" target="_blank" className="thumbnail"><img src="https://b.thumbs.redditmedia.com/AeNLy_ivCTO0Va3HAuQKfA-MGiaVtQEabyGMc-l0Twk.jpg" /></a>
+
+                            <textarea rows="1" placeholder="Add your thoughts..."></textarea>
                         </li>
 
                     </ul>

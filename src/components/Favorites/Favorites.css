@@ -1,4 +1,4 @@
-.grid-box {
+.grid-box-favorites {
     display: grid;
     grid-template-columns: 1fr 3fr;
     justify-content: space-between;
@@ -9,12 +9,42 @@
     background-color: white;
 }
 
+.date-added {
+    color: #6C606C;
+}
+
 .thumbnail {
     display: block;
     width: 100px;
     margin-bottom: 10px;
 }
 
-h4 {
+h4, ul {
     color: #201D20;
+    list-style-type: square;
+}
+
+h4 {
+    margin-bottom: 7px;
+}
+
+.date-added {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+textarea {
+    color: #6C606C;
+    font-size: medium;
+    font-style: italic;
+    width: 70%;
+    resize: none;
+    font-family: serif;
+    border: none;
+
+}
+
+textarea:focus {
+    outline: none;
 }

@@ -2,9 +2,9 @@
     color: #201D20;
 }
 
-.grid-box {
+.grid-box-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 4fr 5fr 4fr;
   justify-content: space-between;
 }
 
@@ -47,6 +47,7 @@ h2 {
 
 .heart-icon:hover {
   cursor: pointer;
+  filter: brightness(101%);
 } 
 
 .counter-box {

@@ -9,7 +9,7 @@ function Gallery() {
 
         <body>
 
-          <div className='grid-box'>
+          <div className='grid-box-gallery'>
     
             <nav>
                 <a href='Favorites' className='navigation'><i className="arrow left" /> Favorites</a>
@@ -21,7 +21,7 @@ function Gallery() {
 
                 <h2 className='title'>Title</h2>
 
-                <p className='author'>By Author Name</p>
+                <p className='author'>By u/Author Name</p>
 
               </header>
     
