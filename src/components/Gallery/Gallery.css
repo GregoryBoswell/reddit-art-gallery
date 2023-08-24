@@ -4,7 +4,7 @@
 
 .grid-box-gallery {
   display: grid;
-  grid-template-columns: 4fr 5fr 4fr;
+  grid-template-columns: 3fr 5fr 4fr;
   justify-content: space-between;
 }
 
@@ -42,7 +42,7 @@ h2 {
 
 .heart-icon {
   width: 60px;
-  margin-top: 35vh;
+  margin-top: 250px;
 }
 
 .heart-icon:hover {

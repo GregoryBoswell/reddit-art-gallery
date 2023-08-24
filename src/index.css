@@ -1,10 +1,17 @@
 body {
   color: #6C606C;
-  background-color: #F5F4F5;
+  background-color: white;
   margin: 0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.grid-box {
+  background-color: #F5F4F5;
+  display: grid;
+  grid-template-columns: 2fr 11fr;
+  justify-content: space-between;
 }
 
 code {
@@ -13,11 +20,17 @@ code {
 }
 
 nav {
+  height: 100vh;
   padding-top: 2vh;
   padding-left: 3%;
 }
 
+.active {
+  font-weight: bold;
+}
+
 .navigation {
+  display: block;
   color: #6C606C;
   text-decoration: none;
 }

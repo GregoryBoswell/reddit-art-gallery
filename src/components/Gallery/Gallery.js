@@ -10,11 +10,11 @@ function Gallery() {
         <body>
 
           <div className='grid-box-gallery'>
-    
-            <nav>
-                <a href='Favorites' className='navigation'><i className="arrow left" /> Favorites</a>
-            </nav>
-    
+            <div>
+              
+            </div>
+
+
             <section className='art-display'>
 
               <header>

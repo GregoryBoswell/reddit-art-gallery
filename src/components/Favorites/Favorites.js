@@ -7,12 +7,7 @@ function Favorites() {
 
         <body>
 
-            <div className="grid-box-favorites">
 
-                <nav>
-                    <a href='Gallery' className="navigation"><i className="arrow left" /> Return to Gallery</a>
-
-                </nav>
 
                 <section className="favorites">
 
@@ -33,7 +28,6 @@ function Favorites() {
 
                 </section>
 
-            </div>
 
         </body>
     );
