@@ -2,16 +2,18 @@ import React from "react";
 import './Gallery.css'
 import heart_empty from '../../media/images/heart-icon-empty.png';
 import heart_full from '../../media/images/heart-icon-full.png';
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { counterActions } from "../../store/counter-slice";
+import { favoritesActions } from "../../store/favorites-slice";
 
 function Gallery() {
     const counter = useSelector((state) => state.counter.counter);
-    const galleryLength = useSelector((state) => state.counter.galleryLength)
-    const currentArtwork = useSelector((state) => state.counter.currentArtwork)
+    const galleryLength = useSelector((state) => state.counter.galleryLength);
+    const currentArtwork = useSelector((state) => state.counter.currentArtwork);
+    const isFavorited = useSelector((state) => state.favorites.isFavorited);
 
     const dispatch = useDispatch();
-
 
     const decrement = () => {
       dispatch(counterActions.decrement());
@@ -22,6 +24,24 @@ function Gallery() {
       dispatch(counterActions.increment());
       dispatch(counterActions.changeArtwork());
     };
+    
+    const favorite = () => {
+      dispatch(favoritesActions.addFavorite(currentArtwork));
+      checkIsFavorited();
+    };
+
+    const removeFavorite = () => {
+      dispatch(favoritesActions.removeFavorite(currentArtwork));
+      checkIsFavorited();
+    };
+
+    const checkIsFavorited = () => {
+      dispatch(favoritesActions.checkIsFavorited(currentArtwork));
+    };
+
+    useEffect(() => {
+      checkIsFavorited();
+    })
 
     return (
 
@@ -48,7 +68,7 @@ function Gallery() {
     
               <div className='artwork-box'>
 
-                <img src={`${currentArtwork.url}`} className='artwork' />
+                <img src={`${currentArtwork.url}`} className='artwork' alt='Artwork' />
 
               </div>
     
@@ -70,7 +90,7 @@ function Gallery() {
 
             <div className="heart-box">
 
-              <img src={heart_empty} alt='Heart Icon' className='heart-icon' />
+              <img onClick={ isFavorited ? removeFavorite : favorite } src={ isFavorited ? heart_full : heart_empty } alt='Heart Icon' className='heart-icon' />
 
             </div>
 
