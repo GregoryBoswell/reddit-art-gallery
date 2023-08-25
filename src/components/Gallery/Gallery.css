@@ -4,8 +4,9 @@
 
 .grid-box-gallery {
   display: grid;
-  grid-template-columns: 3fr 5fr 4fr;
+  grid-template-columns: 3fr 5fr 3fr;
   justify-content: space-between;
+  padding-top: 7vh;
 }
 
 .art-display {
@@ -22,10 +23,15 @@
 }
 
 .description-box {
+  width: 200px;
+  margin-left: 100px;
   height: 100vh;
+  justify-content: right;
+}
+
+.heart-box {
+  display: flex;
   justify-content: left;
-  margin-left: 5%;
-  margin-right: 40%;
 }
 
 h2 {
@@ -33,16 +39,27 @@ h2 {
   padding: 0;
 }
 
+.artwork-box {
+  display: block;
+  height: 75vh;
+}
+
+
+
 .artwork {
-  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  height: 100%;
   object-fit: cover;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 5%;
 } 
 
 .heart-icon {
   width: 60px;
-  margin-top: 250px;
+  height: 60px;
+  margin-top: 30vh;
 }
 
 .heart-icon:hover {
@@ -53,8 +70,13 @@ h2 {
 .counter-box {
   display: flex;
   justify-content: space-between;
+  margin-top: 5vh;
 }
 
 .counter {
   margin: 0;
+}
+
+.hidden {
+  color: grey
 }
