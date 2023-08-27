@@ -9,9 +9,20 @@ const favoritesSlice = createSlice({
     reducers: {
         addFavorite(state, action) {
             const newArtwork = action.payload;
+            const fullDate = new Date();
+            const date = fullDate.toDateString();
+
 
             if (state.favorites.filter(object => object.id == newArtwork.id) == false) {
-                state.favorites.push(newArtwork);
+                state.favorites.push({
+                    id: newArtwork.id,
+                    over_18: newArtwork.over_18,
+                    title: newArtwork.title,
+                    url: newArtwork.url,
+                    thumbnail: newArtwork.thumbnail,
+                    date_added: date,
+                    thoughts: '',
+                });
             };   
 
         },
