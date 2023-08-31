@@ -1,7 +1,6 @@
 import React from "react";
 import './Favorites.css';
 import delete_icon from '../../media/images/delete-icon.png';
-import nsfw_icon from '../../media/images/nsfw-icon.png';
 import { useSelector, useDispatch } from "react-redux";
 import { favoritesActions } from "../../store/favorites-slice";
 
@@ -11,33 +10,31 @@ function Favorites() {
 
     const dispatch = useDispatch();
 
-    const removeFavorite = (value) => {
-        dispatch(favoritesActions.removeFavorite(value));
+    const removeFavorite = (key) => {
+        dispatch(favoritesActions.removeFavorite(key));
     };
 
     const listItems = favorites.map((item) => 
-        <li className="favorite-item">
+        <li key={item.id} className="favorite-item">
 
             <div className="title-box">
 
                 <h4>{item.title}</h4>
 
-                <img onClick={removeFavorite} src={delete_icon} className="delete-button" />
+                <img src={delete_icon} className="delete-button" />
  
             </div>
 
             <p className="date-added">Added {item.date_added}</p>
             
-            <a href={item.url} rel="noreferrer noopener" target="_blank" alt="Link to reddit post"><img src={item.thumbnail == 'nsfw' ? nsfw_icon : item.thumbnail} className="thumbnail" /></a>
-
-            {/*<textarea rows="2" placeholder="Add your thoughts..."></textarea>*/}
+            <a href={item.url} rel="noreferrer noopener" target="_blank" alt="Link to reddit post"><img src={item.thumbnail} className="thumbnail" /></a>
 
         </li>
     );
 
     return (
 
-        <body>
+        <main>
 
                 <section className="favorites">
 
@@ -50,7 +47,7 @@ function Favorites() {
                 </section>
 
 
-        </body>
+        </main>
     );
 }
 

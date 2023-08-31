@@ -2,102 +2,103 @@ import React from "react";
 import './Gallery.css'
 import heart_empty from '../../media/images/heart-icon-empty.png';
 import heart_full from '../../media/images/heart-icon-full.png';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { counterActions } from "../../store/counter-slice";
 import { favoritesActions } from "../../store/favorites-slice";
 
 function Gallery() {
-    const counter = useSelector((state) => state.counter.counter);
-    const galleryLength = useSelector((state) => state.counter.galleryLength);
-    const currentArtwork = useSelector((state) => state.counter.currentArtwork);
-    const isFavorited = useSelector((state) => state.favorites.isFavorited);
 
-    const dispatch = useDispatch();
+  const counter = useSelector((state) => state.counter.counter);
+  const galleryLength = useSelector((state) => state.counter.galleryLength);
+  const currentArtwork = useSelector((state) => state.counter.currentArtwork);
+  const isFavorited = useSelector((state) => state.favorites.isFavorited);
 
-    const decrement = () => {
-      dispatch(counterActions.decrement());
-      dispatch(counterActions.changeArtwork());
-    }; 
+  const dispatch = useDispatch();
 
-    const increment = () => {
-      dispatch(counterActions.increment());
-      dispatch(counterActions.changeArtwork());
-    };
-    
-    const favorite = () => {
-      dispatch(favoritesActions.addFavorite(currentArtwork));
-      checkIsFavorited();
-    };
+  const decrement = () => {
+    dispatch(counterActions.decrement());
+    dispatch(counterActions.changeArtwork());
+  }; 
 
-    const removeFavorite = () => {
-      dispatch(favoritesActions.removeFavorite(currentArtwork));
-      checkIsFavorited();
-    };
+  const increment = () => {
+    dispatch(counterActions.increment());
+    dispatch(counterActions.changeArtwork());
+  };
+  
+  const favorite = () => {
+    dispatch(favoritesActions.addFavorite(currentArtwork));
+    checkIsFavorited();
+  };
 
-    const checkIsFavorited = () => {
-      dispatch(favoritesActions.checkIsFavorited(currentArtwork));
-    };
+  const removeFavorite = () => {
+    dispatch(favoritesActions.removeFavorite(currentArtwork));
+    checkIsFavorited();
+  };
 
-    useEffect(() => {
-      checkIsFavorited();
-    })
+  const checkIsFavorited = () => {
+    dispatch(favoritesActions.checkIsFavorited(currentArtwork));
+  };
 
-    return (
+  useEffect(() => {
+    checkIsFavorited();
+  });
 
-        <body>
+  return (
 
-          <div className='grid-box-gallery'>
+    <main>
 
-            <section className='description-box'>
+      <div className='grid-box-gallery'>
 
-              <header>
+        <section className='description-box'>
 
-              <h2 className='title'>{currentArtwork.title}</h2>
+          <header>
 
-              <p className='author'>By u/{currentArtwork.author}</p>
+          <h2 className='title'>{currentArtwork.title}</h2>
 
-              </header>
+          <p className='author'>By u/{currentArtwork.author}</p>
 
-              <p className='description'>{currentArtwork.selftext ? `"${currentArtwork.selftext}"` : ''}</p>
+          </header>
 
-            </section>
+          <p className='description'>{currentArtwork.selftext ? `"${currentArtwork.selftext}"` : ''}</p>
 
-            <section className='art-display'>
+        </section>
 
-    
-              <div className='artwork-box'>
+        <section className='art-display'>
 
-                <img src={`${currentArtwork.url}`} className='artwork' alt='Artwork' />
 
-              </div>
-    
-              <div className='counter-box'>
+          <div className='artwork-box'>
 
-                <div>
-
-                  <button onClick={decrement} className={(counter === 0) ? 'hidden' : ''}>Previous</button>
-
-                  <button onClick={increment} className={(counter === galleryLength - 1) ? 'hidden' : ''}>Next</button>
-
-                </div>
-
-                <p className='counter'>{ counter + 1 } / { galleryLength }</p>
-
-              </div>
-            
-            </section>
-
-            <div className="heart-box">
-
-              <img onClick={ isFavorited ? removeFavorite : favorite } src={ isFavorited ? heart_full : heart_empty } alt='Heart Icon' className='heart-icon' />
-
-            </div>
+            <img src={`${currentArtwork.url}`} className='artwork' alt='Artwork' />
 
           </div>
 
-        </body>
-    );
+          <div className='counter-box'>
+
+            <div>
+
+              <button onClick={decrement} className={(counter === 0) ? 'hidden' : ''}>Previous</button>
+
+              <button onClick={increment} className={(counter === galleryLength - 1) ? 'hidden' : ''}>Next</button>
+
+            </div>
+
+            <p className='counter'>{ counter + 1 } / { galleryLength }</p>
+
+          </div>
+        
+        </section>
+
+        <div className="heart-box">
+
+          <img onClick={ isFavorited ? removeFavorite : favorite } src={ isFavorited ? heart_full : heart_empty } alt='Heart Icon' className='heart-icon' />
+
+        </div>
+
+      </div>
+
+    </main>
+  );
     
 }
 

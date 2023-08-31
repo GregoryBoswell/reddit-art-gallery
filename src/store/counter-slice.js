@@ -18,7 +18,7 @@ const counterSlice = createSlice({
         changeArtwork(state) {
             state.currentArtwork = test_data[state.counter];
         },
-    }
+    },
 });
 
 export const counterActions = counterSlice.actions;
