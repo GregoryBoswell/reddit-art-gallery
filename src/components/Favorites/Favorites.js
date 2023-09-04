@@ -1,35 +1,53 @@
 import React from "react";
 import './Favorites.css';
+import delete_icon from '../../media/images/delete-icon.png';
+import { useSelector, useDispatch } from "react-redux";
+import { favoritesActions } from "../../store/favorites-slice";
 
 function Favorites() {
 
+    const favorites = useSelector((state) => state.favorites.favorites);
+
+    const dispatch = useDispatch();
+
+    const removeFavorite = (key) => {
+        dispatch(favoritesActions.removeFavorite(key));
+    };
+
+    const listItems = favorites.map((item) => 
+        <li key={item.id} className="favorite-item">
+
+            <div className="title-box">
+
+                <h4>{item.title}</h4>
+
+                <img src={delete_icon} className="delete-button" />
+ 
+            </div>
+
+            <p className="date-added">Added {item.date_added}</p>
+            
+            <a href={item.url} rel="noreferrer noopener" target="_blank" alt="Link to reddit post"><img src={item.thumbnail} className="thumbnail" /></a>
+
+        </li>
+    );
+
     return (
 
-        <body>
-
-
+        <main>
 
                 <section className="favorites">
 
                     <ul>
 
-                        <li className="favorite-item">
-
-                            <h4>Untitled, u/melouke, Marker and biro, 2023</h4>
-
-                            <p className="date-added">Added 22/08/2023</p>
-                            
-                            <a href="https://i.redd.it/npi05g5x6njb1.jpg" target="_blank" className="thumbnail"><img src="https://b.thumbs.redditmedia.com/AeNLy_ivCTO0Va3HAuQKfA-MGiaVtQEabyGMc-l0Twk.jpg" /></a>
-
-                            <textarea rows="1" placeholder="Add your thoughts..."></textarea>
-                        </li>
+                        {listItems}
 
                     </ul>
 
                 </section>
 
 
-        </body>
+        </main>
     );
 }
 

@@ -2,63 +2,103 @@ import React from "react";
 import './Gallery.css'
 import heart_empty from '../../media/images/heart-icon-empty.png';
 import heart_full from '../../media/images/heart-icon-full.png';
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { counterActions } from "../../store/counter-slice";
+import { favoritesActions } from "../../store/favorites-slice";
 
 function Gallery() {
 
-    return (
+  const counter = useSelector((state) => state.counter.counter);
+  const galleryLength = useSelector((state) => state.counter.galleryLength);
+  const currentArtwork = useSelector((state) => state.counter.currentArtwork);
+  const isFavorited = useSelector((state) => state.favorites.isFavorited);
 
-        <body>
+  const dispatch = useDispatch();
 
-          <div className='grid-box-gallery'>
-            <div>
-              
-            </div>
+  const decrement = () => {
+    dispatch(counterActions.decrement());
+    dispatch(counterActions.changeArtwork());
+  }; 
+
+  const increment = () => {
+    dispatch(counterActions.increment());
+    dispatch(counterActions.changeArtwork());
+  };
+  
+  const favorite = () => {
+    dispatch(favoritesActions.addFavorite(currentArtwork));
+    checkIsFavorited();
+  };
+
+  const removeFavorite = () => {
+    dispatch(favoritesActions.removeFavorite(currentArtwork));
+    checkIsFavorited();
+  };
+
+  const checkIsFavorited = () => {
+    dispatch(favoritesActions.checkIsFavorited(currentArtwork));
+  };
+
+  useEffect(() => {
+    checkIsFavorited();
+  });
+
+  return (
+
+    <main>
+
+      <div className='grid-box-gallery'>
+
+        <section className='description-box'>
+
+          <header>
+
+          <h2 className='title'>{currentArtwork.title}</h2>
+
+          <p className='author'>By u/{currentArtwork.author}</p>
+
+          </header>
+
+          <p className='description'>{currentArtwork.selftext ? `"${currentArtwork.selftext}"` : ''}</p>
+
+        </section>
+
+        <section className='art-display'>
 
 
-            <section className='art-display'>
+          <div className='artwork-box'>
 
-              <header>
-
-                <h2 className='title'>Title</h2>
-
-                <p className='author'>By u/Author Name</p>
-
-              </header>
-    
-              <div className='artwork-box'>
-
-                <img src='https://i.redd.it/espqz2np66jb1.jpg' alt='Title goes here' className='artwork' />
-
-              </div>
-    
-              <div className='counter-box'>
-
-                <div>
-
-                  <button>Previous</button>
-
-                  <button>Next</button>
-
-                </div>
-
-                <p className='counter'>1/10</p>
-
-              </div>
-            
-            </section>
-    
-            <section className='description-box'>
-
-                <img src={heart_empty} alt='Heart Icon' className='heart-icon' />
-
-                <p className='description'>"This is the where the description will be displayed. Lorem ipsum"</p>
-
-            </section>
+            <img src={`${currentArtwork.url}`} className='artwork' alt='Artwork' />
 
           </div>
 
-        </body>
-    );
+          <div className='counter-box'>
+
+            <div>
+
+              <button onClick={decrement} className={(counter === 0) ? 'hidden' : ''}>Previous</button>
+
+              <button onClick={increment} className={(counter === galleryLength - 1) ? 'hidden' : ''}>Next</button>
+
+            </div>
+
+            <p className='counter'>{ counter + 1 } / { galleryLength }</p>
+
+          </div>
+        
+        </section>
+
+        <div className="heart-box">
+
+          <img onClick={ isFavorited ? removeFavorite : favorite } src={ isFavorited ? heart_full : heart_empty } alt='Heart Icon' className='heart-icon' />
+
+        </div>
+
+      </div>
+
+    </main>
+  );
     
 }
 
