@@ -15,17 +15,19 @@ function Gallery() {
   // const currentArtwork = useSelector((state) => state.counter.currentArtwork);
   // const isFavorited = useSelector((state) => state.favorites.isFavorited);
 
-  const dispatch = useDispatch();
-  // Function to fire the query
-  const artwork = useArtQuery();
-  // get the data from the query
-  const { artInfo } = useSelector((state) => state.art);
+  // **************The useArtQueryHook replaces useSelector, useDispatch, and useEffect, reading posts data and loading state from the store, and dispatching the getArtData()***************
 
-  useEffect(() => {
-    dispatch(getArtData(artwork.data));
-  }, [artwork.data]);
+  // const dispatch = useDispatch();
+  // // Function to fire the query
+  // const artwork = useArtQuery();
+  // // get the data from the query
+  // const { artInfo } = useSelector((state) => state.art);
 
-  console.log(artInfo);
+  // useEffect(() => {
+  //   dispatch(getArtData(artwork.data));
+  // }, [artwork.data]);
+
+  // console.log(artInfo);
 
   // const decrement = () => {
   //   dispatch(counterActions.decrement());
@@ -55,10 +57,30 @@ function Gallery() {
   //   checkIsFavorited();
   // });
 
+  const { data, isLoading, isSuccess, isError, error } = useArtQuery();
+
+  let content;
+
+  if (isLoading) {
+    content = <div>Loading...</div>;
+  } else if (isSuccess) {
+    console.log(data);
+    content = (
+      <ul>
+        {data.data.children.map((post) => (
+          <li key={post.data.id}> {post.data.title} </li>
+        ))}
+      </ul>
+    );
+  } else if (isError) {
+    content = <div>{error.toString()}</div>;
+  }
+
   return (
     <main>
       <div className="grid-box-gallery">
         <p>Gallery</p>
+        {content}
         {/* <section className="description-box">
           <header>
             <h2 className="title">{currentArtwork.title}</h2>

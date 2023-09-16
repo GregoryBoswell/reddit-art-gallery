@@ -12,8 +12,7 @@ export const artApiSlice = apiSlice.injectEndpoints({
     art: builder.query({
       query: () => ({
         url: `${BASE_URL}/Art.json`,
-        method: 'GET',
-        // body: credentials,
+        // method: 'GET',
       }),
     }),
     // register: builder.mutation({
@@ -39,7 +38,4 @@ export const artApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const {
-  // useLoginMutation,
-  useArtQuery,
-} = artApiSlice;
+export const { useArtQuery } = artApiSlice;

@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-
+import { setupListeners } from '@reduxjs/toolkit/query';
 import { apiSlice } from './apiSlice';
 import artReducer from './redditSlice';
 
@@ -12,5 +12,7 @@ const store = configureStore({
     getDefaultMiddleware().concat(apiSlice.middleware), // The concat is used to add the thunk middleware from the apiSlice to the default middleware
   devTools: true,
 });
+
+setupListeners(store.dispatch);
 
 export default store;
