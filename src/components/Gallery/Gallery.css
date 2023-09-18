@@ -43,8 +43,32 @@
   margin: 0;
 }
 
+.counter-button {
+  width: 70px;
+
+  background-color: #E2DFE2;
+  color: #201D20;
+
+  border: none;
+  padding: 6px;
+  margin-right: 9px;
+
+  font-family: serif;
+  font-size: 15px;
+}
+
+.counter-button:hover {
+  cursor: pointer;
+
+  background-color: #D8D4D8;
+}
+
 .hidden {
   color: grey
+}
+
+.hidden:hover {
+  cursor: default;
 }
 
 /* Description */

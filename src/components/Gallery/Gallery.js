@@ -101,8 +101,8 @@ function Gallery() {
           </div>
           <div className="counter-box">
             <div>
-              <button onClick={decrement} className={counter > 0 ? '' : 'hidden'}>Previous</button>
-              <button onClick={increment} className={counter < galleryLength - 1 ? '' : 'hidden'}>Next</button>
+              <button onClick={decrement} className={counter > 0 ? 'counter-button' : 'counter-button hidden'}>Previous</button>
+              <button onClick={increment} className={counter < galleryLength - 1 ? 'counter-button' : 'counter-button hidden'}>Next</button>
             </div>
             <p className="counter">
               {counter + 1} / {galleryLength}
