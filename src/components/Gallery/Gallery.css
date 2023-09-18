@@ -3,74 +3,40 @@
 }
 
 .grid-box-gallery {
+  background-color: #F5F4F5;
   display: grid;
-  grid-template-columns: 3fr 5fr 3fr;
-  justify-content: space-between;
-  padding-top: 7vh;
+  grid-template-columns: 2fr 5fr 2fr;
 }
+
+/* Artwork */
 
 .art-display {
   height: 100vh;
 }
 
-.title {
-  margin-top: 2vh;
-}
-
-.author {
-  margin-top: 2%;
-  margin-bottom: 4%;
-}
-
-.description-box {
-  width: 200px;
-  margin-left: 100px;
-  height: 100vh;
-  justify-content: right;
-}
-
-.heart-box {
-  display: flex;
-  justify-content: left;
-}
-
-h2 {
-  margin: 0;
-  padding: 0;
-}
-
 .artwork-box {
-  display: block;
-  height: 75vh;
+  height: 87%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-
 
 .artwork {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 96%;
+  max-height: 93%;
 
-  height: 100%;
-  object-fit: cover;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-} 
-
-.heart-icon {
-  width: 60px;
-  height: 60px;
-  margin-top: 30vh;
 }
 
-.heart-icon:hover {
-  cursor: pointer;
-  filter: brightness(101%);
-} 
+/* Counter */
 
 .counter-box {
+  height: 13%;
+
   display: flex;
   justify-content: space-between;
-  margin-top: 5vh;
+  align-items: center;
 }
 
 .counter {
@@ -79,4 +45,41 @@ h2 {
 
 .hidden {
   color: grey
+}
+
+/* Description */
+
+.description-box {
+  width: 80%;
+}
+
+.description-display {
+
+  display: flex;
+  justify-content: right;
+  
+  padding-top: 60%;
+}
+
+/* Heart Icon */
+
+.heart-icon:hover {
+  display: block;
+  cursor: pointer;
+
+  opacity: 100%;
+} 
+
+.artwork:hover~.heart-icon{
+  display: block;
+}
+
+.heart-icon {
+  position: absolute;
+  display: none;
+
+  opacity: 70%;
+
+  height: 70px;
+  width: 70px;
 }

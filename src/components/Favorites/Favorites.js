@@ -1,5 +1,4 @@
 import React from 'react';
-import './Favorites.css';
 import delete_icon from '../../media/images/delete-icon.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { favoritesActions } from '../../store/favorites-slice';
